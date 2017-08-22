@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>Semester 5</title>
+	<script>
+        // global declaration
+        var sumcredit = 0,gradepoint = 0;
+        
+        function myFunction() 
+        {
+            var a = document.getElementById("dm").value;
+            var b = document.getElementById("ip").value;
+            var c = document.getElementById("ooad").value;
+            var d = document.getElementById("toc").value;
+            var e = document.getElementById("cg").value;
+            var f = document.getElementById("ctlab").value;
+            var g = document.getElementById("iplab").value;
+            var h = document.getElementById("cglab").value;
+            
+            // calculate all subject gradepoints
+            grade(a,4)+grade(b,4)+grade(c,3)+grade(d,3)+grade(e,3)+grade(f,2)+grade(g,2)+grade(h,2);
+            
+            // printing sgpa = sum of gradepoints of each subject / sum of credits of each subject
+            document.getElementById("demo").innerHTML = gradepoint/sumcredit;
+            // if all fields are empty, then results in 'demo' paragraph is 'NaN' -> 'Not a Number'
+        }
+        function grade(subject,credit){
+            switch(subject){
+                // For both 's' & 'S', credit multiply with 10 and so on
+                case "s":
+                case "S":
+                    gradepoint += (10*credit);
+                    sumcredit += credit;
+                    break;
+                case "a":
+                case "A":
+                    gradepoint += (9*credit);
+                    sumcredit += credit;
+                    break;
+                case "b":
+                case "B":
+                    gradepoint += (8*credit);
+                    sumcredit += credit;
+                    break;
+                case "c":
+                case "C":
+                    gradepoint += (7*credit);
+                    sumcredit += credit;
+                    break;
+                case "d":
+                case "D":
+                    gradepoint += (6*credit);
+                    sumcredit += credit;
+                    break;
+                case "e":
+                case "E":
+                    gradepoint += (5*credit);
+                    sumcredit += credit;
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+</script>
+</head>
+<body>
+	Fifth Semester:
+	<br>
+	
+	Discrete Mathematics <input type="text" id="dm" style="width:30px;"><br>
+	Internet Programming <input type="text" id="ip" style="width:30px;"><br>
+	Object Oriented Analysis and Design <input type="text" id="ooad" style="width:30px;"><br>
+	Theory of Computation <input type="text" id="toc" style="width:30px;"><br>
+	Computer Graphics <input type="text" id="cg" style="width:30px;"><br>
+	Case Tools Laboratory <input type="text" id="ctlab" style="width:30px;"><br>
+	Internet Programming Laboratory<input type="text" id="iplab" style="width:30px;"><br>
+	Computer Graphics Laboratory <input type="text" id="cglab" style="width:30px;"><br>
+	<br>
+	
+	<p>Click the button to view your GPA</p>
+	<input type="button" type="button" value="Reset">
+	<input type="button" type="button" value="Calculate" onclick="myFunction()">
+	<p id="demo"></p>
+</body>
+</html>
