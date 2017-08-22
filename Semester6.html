@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Semester 6</title>
+	<script>
+        // global declaration
+        var sumcredit = 0,gradepoint = 0;
+        
+        function myFunction() 
+        {
+            var a = document.getElementById("ds").value;
+            var b = document.getElementById("mc").value;
+            var c = document.getElementById("cd").value;
+            var d = document.getElementById("dsp").value;
+            var e = document.getElementById("ai").value;
+            var f = document.getElementById("dwdm").value;
+            var g = document.getElementById("madlab").value;
+            var h = document.getElementById("clab").value;
+            var i = document.getElementById("csslab").value; 
+            
+            // calculate all subject gradepoints
+            grade(a,3)+grade(b,3)+grade(c,3)+grade(d,4)+grade(e,3)+grade(f,3)+grade(g,2)+grade(h,2)+grade(i,2);
+            
+            // printing sgpa = sum of gradepoints of each subject / sum of credits of each subject
+            document.getElementById("demo").innerHTML = gradepoint/sumcredit;
+            // if all fields are empty, then results in 'demo' paragraph is 'NaN' -> 'Not a Number'
+        }
+        function grade(subject,credit){
+            switch(subject){
+                // For both 's' & 'S', credit multiply with 10 and so on
+                case "s":
+                case "S":
+                    gradepoint += (10*credit);
+                    sumcredit += credit;
+                    break;
+                case "a":
+                case "A":
+                    gradepoint += (9*credit);
+                    sumcredit += credit;
+                    break;
+                case "b":
+                case "B":
+                    gradepoint += (8*credit);
+                    sumcredit += credit;
+                    break;
+                case "c":
+                case "C":
+                    gradepoint += (7*credit);
+                    sumcredit += credit;
+                    break;
+                case "d":
+                case "D":
+                    gradepoint += (6*credit);
+                    sumcredit += credit;
+                    break;
+                case "e":
+                case "E":
+                    gradepoint += (5*credit);
+                    sumcredit += credit;
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+</script>
+</head>
+<body>
+	Sixth Semester:
+	<br>
+	
+	Distributed Systems <input type="text" id="ds" style="width:30px;"><br>
+	Mobile Computing <input type="text" id="mc" style="width:30px;"><br>
+	Compiler Design <input type="text" id="cd" style="width:30px;"><br>
+	Digital Signal Processing <input type="text" id="dsp" style="width:30px;"><br>
+	Artificial Intelligence <input type="text" id="ai" style="width:30px;"><br>
+	Data Warehousing and Data Mining <input type="text" id="dwdm" style="width:30px;"><br>
+	Mobile Application Development Laboratory<input type="text" id="madlab" style="width:30px;"><br>
+	Compiler Laboratory <input type="text" id="clab" style="width:30px;"><br>
+	Communication and  Soft  Skills - Laboratory Based <input type="text" id="csslab" style="width:30px;"><br>
+	<br>
+	
+	<p>Click the button to view your GPA</p>
+	<input type="button" type="button" value="Reset">
+	<input type="button" type="button" value="Calculate" onclick="myFunction()">
+	<p id="demo"></p>
+</body>
+</html>
