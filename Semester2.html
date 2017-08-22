@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Semester 2</title>
+	<script>
+        // global declaration
+        var sumcredit = 0,gradepoint = 0;
+        
+        function myFunction() 
+        {
+            var a = document.getElementById("te2").value;
+            var b = document.getElementById("m2").value;
+            var c = document.getElementById("ep2").value;
+            var d = document.getElementById("ec2").value;
+            var e = document.getElementById("dpsd").value;
+            var f = document.getElementById("pds1").value;
+            var g = document.getElementById("pclab2").value;
+            var h = document.getElementById("dlab").value;
+            var i = document.getElementById("pdslab1").value; 
+            
+            // calculate all subject gradepoints
+            grade(a,4)+grade(b,4)+grade(c,3)+grade(d,3)+grade(e,3)+grade(f,3)+grade(g,1)+grade(h,2)+grade(i,2);
+            
+            // printing sgpa = sum of gradepoints of each subject / sum of credits of each subject
+            document.getElementById("demo").innerHTML = gradepoint/sumcredit;
+            // if all fields are empty, then results in 'demo' paragraph is 'NaN' -> 'Not a Number'
+        }
+        function grade(subject,credit){
+            switch(subject){
+                // For both 's' & 'S', credit multiply with 10 and so on
+                case "s":
+                case "S":
+                    gradepoint += (10*credit);
+                    sumcredit += credit;
+                    break;
+                case "a":
+                case "A":
+                    gradepoint += (9*credit);
+                    sumcredit += credit;
+                    break;
+                case "b":
+                case "B":
+                    gradepoint += (8*credit);
+                    sumcredit += credit;
+                    break;
+                case "c":
+                case "C":
+                    gradepoint += (7*credit);
+                    sumcredit += credit;
+                    break;
+                case "d":
+                case "D":
+                    gradepoint += (6*credit);
+                    sumcredit += credit;
+                    break;
+                case "e":
+                case "E":
+                    gradepoint += (5*credit);
+                    sumcredit += credit;
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+</script>
+</head>
+<body>
+	Second Semester:
+	<br>
+	
+	Technical English – II <input type="text" id="te2" style="width:30px;"><br>
+	Mathematics – II <input type="text" id="m2" style="width:30px;"><br>
+	Engineering Physics – II <input type="text" id="ep2" style="width:30px;"><br>
+	Engineering Chemistry – II <input type="text" id="ec2" style="width:30px;"><br>
+	Digital Principles and System Design <input type="text" id="dpsd" style="width:30px;"><br>
+	Programming and Data Structures I <input type="text" id="pds1" style="width:30px;"><br>
+	Physics and Chemistry Laboratory - II<input type="text" id="pclab2" style="width:30px;"><br>
+	Digital Laboratory <input type="text" id="dlab" style="width:30px;"><br>
+	Programming and Data Structures Laboratory I  <input type="text" id="pdslab1" style="width:30px;"><br>
+	<br>
+	
+	<p>Click the button to view your GPA</p>
+	<input type="button" type="button" value="Reset">
+	<input type="button" type="button" value="Calculate" onclick="myFunction()">
+	<p id="demo"></p>
+</body>
+</html>
