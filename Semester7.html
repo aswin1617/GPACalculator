@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Semester 7</title>
+	<script>
+        // global declaration
+        var sumcredit = 0,gradepoint = 0;
+        
+        function myFunction() 
+        {
+            var a = document.getElementById("cns").value;
+            var b = document.getElementById("gta").value;
+            var c = document.getElementById("gcc").value;
+            var d = document.getElementById("rmt").value;
+            var e = document.getElementById("soa").value;
+            var f = document.getElementById("ir").value;
+            var g = document.getElementById("slab").value;
+            var h = document.getElementById("gcclab").value;
+            
+            // calculate all subject gradepoints
+            grade(a,3)+grade(b,3)+grade(c,3)+grade(d,3)+grade(e,3)+grade(f,3)+grade(g,2)+grade(h,2);
+            
+            // printing sgpa = sum of gradepoints of each subject / sum of credits of each subject
+            document.getElementById("demo").innerHTML = gradepoint/sumcredit;
+            // if all fields are empty, then results in 'demo' paragraph is 'NaN' -> 'Not a Number'
+        }
+        function grade(subject,credit){
+            switch(subject){
+                // For both 's' & 'S', credit multiply with 10 and so on
+                case "s":
+                case "S":
+                    gradepoint += (10*credit);
+                    sumcredit += credit;
+                    break;
+                case "a":
+                case "A":
+                    gradepoint += (9*credit);
+                    sumcredit += credit;
+                    break;
+                case "b":
+                case "B":
+                    gradepoint += (8*credit);
+                    sumcredit += credit;
+                    break;
+                case "c":
+                case "C":
+                    gradepoint += (7*credit);
+                    sumcredit += credit;
+                    break;
+                case "d":
+                case "D":
+                    gradepoint += (6*credit);
+                    sumcredit += credit;
+                    break;
+                case "e":
+                case "E":
+                    gradepoint += (5*credit);
+                    sumcredit += credit;
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+</script>
+</head>
+<body>
+	Seventh Semester:
+	<br>
+	
+	Cryptography and Network Security <input type="text" id="cns" style="width:30px;"><br>
+	Graph Theory and Applications <input type="text" id="gta" style="width:30px;"><br>
+	Grid and Cloud Computing <input type="text" id="gcc" style="width:30px;"><br>
+	Resource Management Techniques <input type="text" id="rmt" style="width:30px;"><br>
+	Service Oriented Architecture <input type="text" id="soa" style="width:30px;"><br>
+	Information Retrieval <input type="text" id="ir" style="width:30px;"><br>
+	Security Laboratory<input type="text" id="slab" style="width:30px;"><br>
+	Grid and Cloud Computing Laboratory <input type="text" id="gcclab" style="width:30px;"><br>
+
+	<br>
+	
+	<p>Click the button to view your GPA</p>
+	<input type="button" type="button" value="Reset">
+	<input type="button" type="button" value="Calculate" onclick="myFunction()">
+	<p id="demo"></p>
+</body>
+</html>
