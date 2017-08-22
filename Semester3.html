@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>Semester 3</title>
+	<script>
+        // global declaration
+        var sumcredit = 0,gradepoint = 0;
+        
+        function myFunction() 
+        {
+            var a = document.getElementById("tdpe").value;
+            var b = document.getElementById("pds2").value;
+            var c = document.getElementById("dbms").value;
+            var d = document.getElementById("ca").value;
+            var e = document.getElementById("adc").value;
+            var f = document.getElementById("evs").value;
+            var g = document.getElementById("pdslab2").value;
+            var h = document.getElementById("dbmslab").value;
+            
+            // calculate all subject gradepoints
+            grade(a,4)+grade(b,3)+grade(c,3)+grade(d,3)+grade(e,3)+grade(f,3)+grade(g,2)+grade(h,2);
+            
+            // printing sgpa = sum of gradepoints of each subject / sum of credits of each subject
+            document.getElementById("demo").innerHTML = gradepoint/sumcredit;
+            // if all fields are empty, then results in 'demo' paragraph is 'NaN' -> 'Not a Number'
+        }
+        function grade(subject,credit){
+            switch(subject){
+                // For both 's' & 'S', credit multiply with 10 and so on
+                case "s":
+                case "S":
+                    gradepoint += (10*credit);
+                    sumcredit += credit;
+                    break;
+                case "a":
+                case "A":
+                    gradepoint += (9*credit);
+                    sumcredit += credit;
+                    break;
+                case "b":
+                case "B":
+                    gradepoint += (8*credit);
+                    sumcredit += credit;
+                    break;
+                case "c":
+                case "C":
+                    gradepoint += (7*credit);
+                    sumcredit += credit;
+                    break;
+                case "d":
+                case "D":
+                    gradepoint += (6*credit);
+                    sumcredit += credit;
+                    break;
+                case "e":
+                case "E":
+                    gradepoint += (5*credit);
+                    sumcredit += credit;
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+</script>
+</head>
+<body>
+	Third Semester:
+	<br>
+	
+	Transforms and Partial Differential Equations <input type="text" id="tpde" style="width:30px;"><br>
+	Programming and Data Structure I <input type="text" id="pds2" style="width:30px;"><br>
+	Database Management Systems <input type="text" id="dbms" style="width:30px;"><br>
+	Computer Architecture <input type="text" id="ca" style="width:30px;"><br>
+	Analog and Digital Communication <input type="text" id="adc" style="width:30px;"><br>
+	Environmental Science and Engineering <input type="text" id="evs" style="width:30px;"><br>
+	Programming and Data Structure Laboratory II<input type="text" id="pdslab2" style="width:30px;"><br>
+	Database Management Systems Laboratory <input type="text" id="dbmslab" style="width:30px;"><br>
+	<br>
+	
+	<p>Click the button to view your GPA</p>
+	<input type="button" type="button" value="Reset">
+	<input type="button" type="button" value="Calculate" onclick="myFunction()">
+	<p id="demo"></p>
+</body>
+</html>
